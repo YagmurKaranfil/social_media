@@ -1,0 +1,79 @@
+{% load static %}
+
+<!-- Create Post Modal (ID: exampleModal2) -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  aria-labelledby="exampleModal2Label"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModal2Label">New Post</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <form
+          action="{% url 'upload' %}"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          {% csrf_token %}
+
+          <!-- Image Upload Field -->
+          <div class="mb-3 text-center">
+            <img
+              src="{% static 'css/upload.png' %}"
+              alt="Upload Icon"
+              class="m-2"
+              style="width: 40px"
+            />
+            <label for="imageUpload2" class="form-label d-block">Photo</label>
+            <input
+              type="file"
+              name="image_upload"
+              class="form-control"
+              id="imageUpload2"
+              required
+            />
+          </div>
+
+          <!-- Caption Field -->
+          <div class="mb-3">
+            <label for="captionText2" class="form-label">Caption</label>
+            <textarea
+              class="form-control"
+              name="caption"
+              id="captionText2"
+              placeholder="Write a caption..."
+              rows="3"
+              required
+            ></textarea>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Create Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

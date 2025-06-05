@@ -1,0 +1,48 @@
+{% load static %}
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal3"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h5 class="modal-title" id="exampleModalLabel">Search Users</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form method="get" action="{% url 'search_results' %}">
+          {% csrf_token %}
+          <div class="input-group rounded">
+            <input
+              type="text"
+              name="q"
+              placeholder="Search users"
+              class="form-control rounded"
+              aria-label="Search"
+              aria-describedby="search-addon"
+              required
+              autofocus
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="submit"
+              id="search-addon"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container my-4">
+  <h1>Search Results for "{{ query }}"</h1>
+
+  <section class="mt-4">
+    <h2>User Profiles</h2>
+    {% if users %}
+    <table class="table table-hover">
+      <tbody>
+        {% for user in users %}
+        <tr>
+          <td>
+            <h5>
+              <strong>
+                <a
+                  href="/profile/{{ user.user.username }}"
+                  class="text-decoration-none"
+                >
+                  @{{ user.user.username }}
+                </a>
+              </strong>
+            </h5>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No users found for "{{ query }}".</p>
+    {% endif %}
+  </section>
+</div>
